@@ -7,4 +7,8 @@ angular.module('App', ['ngSanitize']) //ngSanitize for HTML displaying
 	var daysToSubtract = 365.25*13-1;
 	startdate.setDate(startdate.getDate()-daysToSubtract);
 		$scope.youngest=startdate;
+
+	$('#formSubmit').click(function() {
+        $('.alert').show()
+    }) 
 }]);

@@ -11,14 +11,19 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="css/main.css"/>
 
-  <!-- include libraries -->
+  <!-- load external libraries -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-  <script src="js/app.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 </head>
 
 <body>
   <div class="container">
+    <div class="alert alert-success fade in">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Success!</strong> The form has been successfully submitted.
+    </div>
     
     <form name="userForm" role="form" class="form-horizontal" ng-contoller="FormCtrl" novalidate>
       
@@ -50,8 +55,8 @@
         <label class="control-label col-sm-2" for="birthdate">Birthdate:</label>
         <div class="col-sm-10">
           <input type="date" class="form-control" name="birthdate" id="birthdate" ng-model="birthdate" placeholder="Enter Birthdate..." max="{{youngest | date:'yyyy-MM-dd'}}">
+          <p ng-show="userForm.birthdate.$invalid && !userForm.birthdate.$pristine" class="help-block">You must be at least 13.</p>
         </div>
-        <p ng-show="userForm.birthdate.$invalid && !userForm.birthdate.$pristine" class="help-block">You must be at least 13.</p>
       </div>
 
       <div class="form-group" ng-class="{ 'has-error' : userForm.pw1.$invalid && userForm.pw1.$touched }">
@@ -72,7 +77,7 @@
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
           <button type="reset" class="btn btn-default">Reset</button>
-          <button ng-disabled="userForm.$invalid" type="submit" class="btn btn-primary">Submit</button>
+          <button ng-disabled="userForm.$invalid" type="submit" class="btn btn-primary" id="formSubmit">Submit</button>
         </div>
       </div>
 
@@ -80,11 +85,11 @@
 
   </div>
 
-  <!-- load external libraries -->
+  <!-- load external scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-sanitize.js"></script>
 
-  <!-- load our script -->
+  <!-- load my script -->
   <script src="js/app.js"></script>
 
 </body>
