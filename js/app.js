@@ -3,18 +3,27 @@
 angular.module('App', ['ngSanitize']) //ngSanitize for HTML displaying
 
 .controller('FormCtrl', ['$scope', '$http', function($scope, $http) {
-	var startdate = new Date();
-	var daysToSubtract = 365.25*13-1;
-	startdate.setDate(startdate.getDate()-daysToSubtract);
-		$scope.youngest=startdate;
-		$('#formSubmit').click(function() {
-			var input = Date.parse($scope.birthdate);
-			console.log(input);
-			console.log($scope.birthdate);
-			if(isNaN(input)) {
-				console.log("Birthday needs to be valid");
-			}
-      $('.alert').show();
+
+    $scope.checkBirthdate = function() {
+        var today = new Date();
+        var birthDate = new Date($scope.birthdate);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        $scope.userAge = age;
+        if (age >= 13) {
+            $scope.userForm.birthdate.$setValidity("birthdate", true);
+            return false;
+        } else {
+            $scope.userForm.birthdate.$setValidity("birthdate", false);
+            return true;
+        }
+    }
+
+	$('#formSubmit').click(function() {
+        $('.alert').show();
     });
 }])
 

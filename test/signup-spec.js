@@ -29,9 +29,15 @@ describe('Signup App', function() {
 		expect(element(by.id('emailErrorValidate')).getText()).toEqual('Please enter a valid email.');
 	});
 
-	// it('should show an error if a birthdate is put in the birthdate field that is below 13 years old', function() {
-		
-	// });
+	it('should show an error if a birthdate is put in the birthdate field that is below 13 years old', function() {
+		birthdate.sendKeys('11/17/2005');
+		expect(element(by.id('ageCheck')).getText()).toEqual('You must be at least 13.');
+	});
+
+	it('should show an error if a birthdate is put in the birthdate field that is an improper form', function() {
+		birthdate.sendKeys('lol this is a test');
+		expect(element(by.id('dateValidation')).getText()).toEqual('Your date format is invalid, please enter as mm/dd/yyyy!');
+	});
 
 	it('should show an error if password is clicked and nothing is inputted', function() {
 		password.click();
