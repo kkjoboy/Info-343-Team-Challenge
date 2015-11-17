@@ -4,6 +4,8 @@
 
 body {
     padding: 15px;
+    background-image: url("../img/websiteBackground.jpg");
+    background-repeat: no-repeat;
 }
 
 h1 {

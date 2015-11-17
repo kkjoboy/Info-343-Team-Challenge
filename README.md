@@ -1,8 +1,5 @@
 # Info-343-Team-Challenge
 
-My favorite candy is twix, especially during Halloween!
+This form allows for validation of last names, email addresses, birthdates (user must be over 13), and a password and confirm password field.
 
-My favorite candy is skittles esp the red ones!
-My favorite candy is Reese's Peanut Butter Cups, especially the mini ones!
-My favorite candy is Reeses Peanut Butter Cups, especially on Halloween.
-
+The members of this group include: Joshua Mielke, Ashlyn Opgrande, Sirfame Lin, Isabelle Tran
