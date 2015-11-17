@@ -57,7 +57,7 @@
         <div class="col-sm-10">
           <input type="text" class="form-control" name="birthdate" id="birthdate" ng-model="birthdate" placeholder="Enter date as mm/dd/yyyy" ng-change="checkBirthdate()" ng-pattern="/^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/i">
           <span ng-show='userForm.birthdate.$error.pattern' class="help-block" id="dateValidation">Your date format is invalid, please enter as mm/dd/yyyy!</span>
-          <span ng-show="checkBirthdate()" class="help-block" id="ageCheck">You must be at least 13.</span>
+          <span ng-show="checkBirthdate() && userForm.birthdate.$touched" class="help-block" id="ageCheck">You must be at least 13.</span>
         </div>
       </div>
 
