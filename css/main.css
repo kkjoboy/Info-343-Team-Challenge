@@ -1,3 +1,11 @@
 .alert {
 	display: none;
 }
+
+body {
+    padding: 15px;
+}
+
+h1 {
+	text-align: center;
+}
