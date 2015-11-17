@@ -31,6 +31,7 @@ describe('Signup App', function() {
 
 	it('should show an error if a birthdate is put in the birthdate field that is below 13 years old', function() {
 		birthdate.sendKeys('11/17/2005');
+		lastname.click();
 		expect(element(by.id('ageCheck')).getText()).toEqual('You must be at least 13.');
 	});
 
