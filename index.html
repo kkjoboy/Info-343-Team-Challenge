@@ -25,9 +25,9 @@
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       <strong>Success!</strong> The form has been successfully submitted.
     </div>
-    
+
     <form name="userForm" role="form" class="form-horizontal" ng-contoller="FormCtrl" novalidate>
-      
+
       <div class="form-group">
         <label class="control-label col-sm-2" for="firstname">First Name:</label>
         <div class="col-sm-10">
@@ -55,7 +55,7 @@
       <div class="form-group" ng-class="{ 'has-error' : userForm.birthdate.$invalid && !userForm.birthdate.$pristine }">
         <label class="control-label col-sm-2" for="birthdate">Birthdate:</label>
         <div class="col-sm-10">
-          <input type="date" class="form-control" name="birthdate" id="birthdate" ng-model="birthdate" placeholder="Enter Birthdate..." max="{{youngest | date:'yyyy-MM-dd'}}">
+          <input type="text" class="form-control" name="birthdate" id="birthdate" ng-model="birthdate" placeholder="Enter Birthdate..." max="{{youngest | date:'yyyy-MM-dd'}}">
           <span ng-show="userForm.birthdate.$invalid && !userForm.birthdate.$pristine" class="help-block">You must be at least 13.</span>
         </div>
       </div>

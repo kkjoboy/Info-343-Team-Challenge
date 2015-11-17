@@ -8,8 +8,14 @@ angular.module('App', ['ngSanitize']) //ngSanitize for HTML displaying
 	startdate.setDate(startdate.getDate()-daysToSubtract);
 		$scope.youngest=startdate;
 		$('#formSubmit').click(function() {
-        $('.alert').show()
-    }) 
+			var input = Date.parse($scope.birthdate);
+			console.log(input);
+			console.log($scope.birthdate);
+			if(isNaN(input)) {
+				console.log("Birthday needs to be valid");
+			}
+      $('.alert').show();
+    });
 }])
 
 .directive('nxEqualEx', function() {
