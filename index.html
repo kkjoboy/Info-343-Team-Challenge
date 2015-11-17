@@ -21,7 +21,7 @@
 <body>
   <h1>Team Challenge Form!</h1>
   <div class="container">
-    <div class="alert alert-success fade in">
+    <div class="alert alert-success fade in" id="submitAlert">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       <strong>Success!</strong> The form has been successfully submitted.
     </div>
@@ -39,7 +39,7 @@
         <label class="control-label col-sm-2" for="lastname">Last Name:</label>
         <div class="col-sm-10">
           <input type="text" class="form-control" name="lastname" id="lastname" ng-model="user.lastname" placeholder="Enter Last Name..."  required>
-          <p ng-show="userForm.lastname.$invalid && userForm.lastname.$touched" class="help-block">Your last name is required.</p>
+          <span ng-show="userForm.lastname.$invalid && userForm.lastname.$touched" class="help-block" id="lastnameValidate">Your last name is required.</span>
         </div>
       </div>
 
@@ -47,8 +47,8 @@
         <label class="control-label col-sm-2" for="email">Email:</label>
         <div class="col-sm-10">
           <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email..." ng-model="user.email" required>
-          <p ng-show="userForm.email.$touched && userForm.email.$error.required" class="help-block">Enter your email.</p>
-          <p ng-show="userForm.email.$touched && userForm.email.$error.email" class="help-block">Please enter a valid email</p>
+          <span ng-show="userForm.email.$touched && userForm.email.$error.required" class="help-block" id="emailBlankValidate">Enter your email.</span>
+          <span ng-show="userForm.email.$touched && userForm.email.$error.email" class="help-block" id="emailErrorValidate">Please enter a valid email.</span>
         </div>
       </div>
 
@@ -56,7 +56,7 @@
         <label class="control-label col-sm-2" for="birthdate">Birthdate:</label>
         <div class="col-sm-10">
           <input type="date" class="form-control" name="birthdate" id="birthdate" ng-model="birthdate" placeholder="Enter Birthdate..." max="{{youngest | date:'yyyy-MM-dd'}}">
-          <p ng-show="userForm.birthdate.$invalid && !userForm.birthdate.$pristine" class="help-block">You must be at least 13.</p>
+          <span ng-show="userForm.birthdate.$invalid && !userForm.birthdate.$pristine" class="help-block">You must be at least 13.</span>
         </div>
       </div>
 
@@ -64,7 +64,7 @@
         <label class="control-label col-sm-2" for="pwd">Password:</label>
         <div class="col-sm-10">
           <input type="password" class="form-control" name="pw1" id="pw1" placeholder="Enter Password..." ng-model="user.password" required>
-          <p ng-show="userForm.pw1.$invalid && userForm.pw1.$touched" class="help-block">Password required!</p>
+          <span ng-show="userForm.pw1.$invalid && userForm.pw1.$touched" class="help-block" id="passwordValidate">Password required!</span>
         </div>
       </div>
 
@@ -72,7 +72,7 @@
         <label class="control-label col-sm-2" for="confirmpwd">Confirm Password:</label>
         <div class="col-sm-10">
           <input type="password" class="form-control" name="pw2" id="pw2" placeholder="Confirm Password..." ng-model="user.confirm" nx-equal-ex="user.password" required>
-          <p ng-show="userForm.pw2.$error.nxEqualEx" class="help-block">Passwords must be equal!</p>
+          <span ng-show="userForm.pw2.$error.nxEqualEx" class="help-block" id="passwordConfirmValidate">Passwords must be equal!</span>
         </div>
       </div>
 
